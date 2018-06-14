@@ -1,0 +1,102 @@
+.cat{
+    background: url("cat_sprite.png") 0 0 no-repeat;
+    height: 200px;
+    width: 400px;
+    overflow: hidden;
+    /* 5 represents the number of times you want the walk steps repeated (like a loop for those steps before moving on) */
+    animation: walk 1s steps(12) 5, 
+    runtrans 1s steps(12) 1 5s,
+    run 1s steps(13) infinite 6s,
+    move 10s linear infinite;
+    top: 46vh;
+    left: 72vw;
+    position: absolute;
+    margin: 0 auto;
+}
+
+@keyframes walk {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 -2400px;
+    }
+
+}
+
+@keyframes runtrans {
+    0% {
+        background-position: -400px 0;
+    }
+    100% {
+        background-position: -400px -2400px;
+    }
+
+}
+
+@keyframes run {
+    0% {
+        background-position: -800px 0;
+    }
+    100% {
+        background-position: -800px -2600px;
+    }
+
+}
+
+@keyframes move {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -400px;
+    }
+}
+.mouse-home{
+    background: url("mouse-home.png") 0 0 no-repeat;
+    height: 95px;
+    width: 213px;
+    top: 66vh;
+    left: 28vw;
+    position: absolute;
+    margin: 0 auto;
+}
+
+.mouse{
+    background: url("cute-mouse-sprite.png") 0 0 no-repeat;
+    height: 80px;
+    width: 126.857px;
+    overflow: hidden;
+    animation: look 4s steps(6) 1,
+    scared 1s steps(1) infinite 25s,
+    hide 6s linear infinite;
+    top: 52vh;
+    left: 22vw;
+    position: absolute;
+    margin: 0 auto;
+}
+
+@keyframes look {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -761.142px 0;
+    }
+}
+@keyframes scared {
+    0% {
+        background-position: -761.142px 0;
+    }
+    100% {
+        background-position: -888px 0;
+    }
+}
+@keyframes hide {
+    80% {
+        left: 22vw;
+    }
+    100% {
+        left: -400px;
+    }
+}
