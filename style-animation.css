@@ -4,54 +4,118 @@ body{
 }
 
 .container{
-    background-image:url(sidewalk.png);
+    background-image:url(bg.png);
     background-size: contain;
-    height:909px;
-    width:1650px;
+    height: 100vh;
+    width:3333px;
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
-.cat{
-    background: url("cat_sprite.png") 0 0 no-repeat;
-    height: 200px;
-    width: 400px;
+.buildings{
+    background: url("building-sprite.png") repeat;
+    height: 469px;
+    width: 2664px;
     overflow: hidden;
-    /* 5 represents the number of times you want the walk steps repeated (like a loop for those steps before moving on) */
-    animation: walk 1s steps(12) 5, 
-    runtrans 1s steps(12) 1 5s,
-    run 1s steps(13) infinite 6s,
-    move 10s linear infinite;
-    top: 46vh;
-    left: 72vw;
+    animation: city 13s linear infinite alternate;
+    transition: transform 1s ease-in-out;
+    top: 12vh;
+    left: 0vw;
     position: absolute;
     margin: 0 auto;
+    z-index: 2;
 }
+
+
+@keyframes city {
+    0% {
+        transform: translateX(0%) translateY(0%);
+      }
+      50% {
+        transform: translateX(-10%) translateY(0%);
+      }
+      100% {
+        transform: translateX(-20%) translateY(0%);
+      }
+    
+}
+
+.sky{
+    background: url("sky.png") 0 0 no-repeat;
+    height: 90vh;
+    width: 3333px;
+    overflow: hidden;
+    top: 0vh;
+    left: 0vw;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 1;
+    animation: clearskies 33s linear infinite alternate;
+    transition: transform 10s ease-in-out;
+}
+
+
+@keyframes clearskies {
+0% {
+    transform: translateX(-40%) translateY(0%);
+  }
+  50% {
+    transform: translateX(-20%) translateY(0%);
+  }
+  100% {
+    transform: translateX(0%) translateY(0%);
+  }
+
+}
+
+/* 1196 x 2591 */
+.cat{
+    background: url("cat_sprite.png") 0 0 no-repeat;
+    height: 199.307px;
+    width: 398.66px;
+    overflow: hidden;
+    /* 5 represents the number of times you want the walk steps repeated (like a loop for those steps before moving on) */
+    animation: walk 2s steps(12) 3, 
+    runtrans 2s steps(12) 1 2s,
+    run 1s steps(13) infinite 1s,
+    move 6s linear infinite;
+    animation-delay: 300ms;
+    top: 50vh;
+    left: 100vw;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 99;
+}
+
 
 @keyframes walk {
     0% {
         background-position: 0 0;
     }
     100% {
-        background-position: 0 -2400px;
+        background-position: 0 -2391.69px;
     }
 
 }
 
 @keyframes runtrans {
     0% {
-        background-position: -400px 0;
+        background-position: -398.66px 0;
     }
     100% {
-        background-position: -400px -2400px;
+        background-position: -398.66px -2391.69px;
     }
 
 }
 
 @keyframes run {
     0% {
-        background-position: -800px 0;
+        background-position: -799.33px 0;
     }
     100% {
-        background-position: -800px -2600px;
+        background-position: -799.33px -2591px;
     }
 
 }
@@ -64,16 +128,16 @@ body{
         left: -400px;
     }
 }
-.idlemouse{
+/* 761x80 6 mice 1 row*/
+.scaredmouse{
     background: url("mouse-sprite.png") 0 0 no-repeat;
     height: 80px;
     width: 126.83px;
     overflow: hidden;
-    animation: surprise 4s steps(4) 4,
-    hanging-out 4s steps(2) 1 20s,
-    standing 4s steps(2) infinite;
-    top: 65vh;
-    left: 26vw;
+    animation: surprise 8s steps(6) infinite, 
+    scarrymouse 8s linear infinite;
+    top: 69vh;
+    left: 20vw;
     position: absolute;
     margin: 0 auto;
     z-index:99;
@@ -81,121 +145,147 @@ body{
 
 @keyframes surprise {
     0% {
-        top: 60vh;
-        left: 39vw;
         background-position: 0 0px;
     }
     100% {
-        top: 60vh;
-        left: 39vw;
-        background-position: -507.32px 0px;
-    }
-}
-
-
-@keyframes hanging-out {
-    0% {
-        top: 60vh;
-        left: 39vw;
-        background-position: -507.32px 0px;
-    }
-    100% {
-        top: 60vh;
-        left: 39vw;
+        
         background-position: -761px 0px;
     }
 }
 
-
-@keyframes standing {
-    0% {
-        top: 60vh;
-        left: 39vw;
-        background-position: -507.32px 0px;
+@keyframes scarrymouse {
+    95% {
+        left: 20vw;
     }
     100% {
-        top: 60vh;
-        left: 39vw;
-        background-position: -761px 0px;
+        left: -100vw;
     }
 }
 
-
+.mousewrap{
+    position: relative;
+}
 .mouse-home{
-    background: url("mouse-home.png") 0 0 no-repeat;
+    background: url("micehome.png") 0 0 no-repeat;
     height: 95px;
     width: 213px;
-    top: 66vh;
-    left: 28vw;
+    top: 72vh;
+    left: 22vw;
     position: absolute;
     margin: 0 auto;
-    z-index: 3px;
+    z-index: 12;
 }
-
-.mouse{
-    background: url("mouse-row-sprite.png") 0 0 no-repeat;
-    height: 80px;
-    width: 127.4285px;
+/* 761x80 6 mice 1 row*/
+.idlemouse{
+    background: url("stillmouse.png") 0 0 no-repeat;
+    height: 32px;
+    width: 115px;
     overflow: hidden;
-    animation: surface 4s steps(5) 1,
-    hide 1s steps(5) 5s,
-    look 4s steps(6) 1 9s,
-    scared 1s steps(1) 10s,
-    speedy 2s linear 12s;
-    top: 65vh;
-    left: 26vw;
+    animation: idling 4s linear infinite alternate-reverse;
+    top: 75vh;
+    left: 34vw;
     position: absolute;
     margin: 0 auto;
     z-index:99;
 }
 
-@keyframes surface {
+@keyframes idling {
     0% {
-        top: 63vh;
-        left: 29vw;
-        background-position: 0 -80px;
+        
+        left: 34vh;
     }
     100% {
-        top: 63vh;
-        left: 29vw;
-        background-position: -637.1428px -80px;
-    }
-}
-@keyframes hide {
-    0% {
-        top: 63vh;
-        left: 29vw;
-        background-position: 0 -160px;
-    }
-    100% {
-        top: 63vh;
-        left: 29vw;
-        background-position: -637.1428px -160px;
-    }
-}
-@keyframes look {
-    60% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: -764.5713px 0;
+        left: 32vh;
     }
 }
 
-@keyframes scared {
-    60% {
-        background-position: -764.5713px 0;
+.lookoutmouse{
+    background: url("lookoutmouse.png") 0 0 no-repeat;
+    height: 80px;
+    width: 122px;
+    overflow: hidden;
+    animation: lookout 4s steps(2) infinite;
+    top: 6h;
+    left: 1vw;
+    position: absolute;
+    margin: 0 auto;
+    z-index:99;
+}
+
+@keyframes lookout {
+    0% {
+        
+        background-position: 0px 0px;
     }
     100% {
-        background-position: -892px 0;
+        background-position: -244px 0px;
+    }
+}
+
+/* 892 x 240 */
+.mouse{
+    background: url("stillmouse.png") 0 0 no-repeat;
+    height: 32px;
+    width: 115px;
+    overflow: hidden;
+    animation: runningscared 6s linear infinite;
+    transition: ease-in-out;
+    animation-delay: 2s;
+    top: 70vh;
+    left: 100vw;
+    position: absolute;
+    margin: 0 auto;
+    z-index:99;
+}
+
+@keyframes runningscared {
+    0% {
+         left: 100%;
+    }
+    100% {
+        left: -350px;
+    }
+}
+
+/* 732x80 */
+.mouse1{
+    background: url("mouse-run.png") 0 0 no-repeat;
+    height: 80px;
+    width: 122px;
+    overflow: hidden;
+    animation: runner 2s steps(4) 1,
+    off 2s steps(2) infinite,
+    speedy 14s steps(6) infinite;
+    transition: ease-in-out;
+    animation-delay: 2s;
+    top: 66vh;
+    left: 21vw;
+    position: absolute;
+    margin: 0 auto;
+    z-index:99;
+}
+@keyframes runner {
+    0% {
+         background-position: 0px 0px;
+    }
+    100% {
+        background-position: -488px 0px;
+    }
+}
+@keyframes off {
+    0% {
+        background-position: -488px 0px;
+    }
+    100% {
+        background-position: -732px 0px;
     }
 }
 @keyframes speedy {
-    80% {
-        left: 26vw;
+    0% {
+        left: 21vw;
     }
     100% {
-        left: -892px;
+        left: -732px;
     }
 }
 
@@ -212,6 +302,7 @@ body{
     left: -20vw;
     position: absolute;
     margin: 0 auto;
+    z-index: 99;
 }
 
 @keyframes start {
@@ -238,7 +329,7 @@ body{
         left: 0%;
     }
     100% {
-        left: 1400px;
+        left: 2400px;
     }
 }
 
@@ -255,6 +346,7 @@ body{
     left: -40vw;
     position: absolute;
     margin: 0 auto;
+    z-index: 99;
 }
 
 @keyframes sportsstart {
@@ -281,6 +373,6 @@ body{
         left: 0%;
     }
     100% {
-        left: 1400px;
+        left: 2400px;
     }
 }
